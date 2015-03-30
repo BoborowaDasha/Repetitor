@@ -1,0 +1,9 @@
+ private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Необходима связь с БД, зафиксировать где стоит курсаов в dataGridView1 и вывести такие значения, в которых Type_education.ID_type_education соответствовал бы Group.ID_type_education
+            SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT", ConnectionString);
+            DataSet ds = new DataSet();
+            dataAdapter.Fill(ds, "Группы");
+            dataGridView2.DataSource = ds.Tables["Группы"].DefaultView;
+
+        }
